@@ -35,6 +35,13 @@ export const mockData = {
           "icon": "/sitelogo/github.com.ico"
         },
         {
+          "id": "github",
+          "name": "Dashboard Icons",
+          "url": "https://dashboardicons.com/",
+          "description": "免费面板图标",
+          "icon": "/sitelogo/github.com.ico"
+        },
+        {
           "id": "curlconverter",
           "name": "curl converter",
           "url": "https://curlconverter.com/",
