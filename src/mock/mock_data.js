@@ -48,7 +48,43 @@ export const mockData = {
       "icon": "🌐",
       "name": "HomeServices",
       "order": 1,
-      "sites": []
+      "sites": [
+        {
+          "id": "site-1767834795353",
+          "name": "AX6",
+          "url": "https://i.w66.fun/",
+          "description": "",
+          "icon": ""
+        },
+        {
+          "id": "site-1767834823219",
+          "name": "OECT",
+          "url": "https://oect.w66.fun/wll",
+          "description": "",
+          "icon": ""
+        },
+        {
+          "id": "site-1767834839678",
+          "name": "Memos",
+          "url": "https://memos.w66.fun/",
+          "description": "",
+          "icon": ""
+        },
+        {
+          "id": "site-1767834853598",
+          "name": "Lucky",
+          "url": "https://lucky.w66.fun/xwall",
+          "description": "",
+          "icon": ""
+        },
+        {
+          "id": "site-1767834874444",
+          "name": "Cpolar",
+          "url": "https://cot.w66.fun/",
+          "description": "",
+          "icon": ""
+        }
+      ]
     },
     {
       "id": "ai-tools",
