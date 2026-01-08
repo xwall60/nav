@@ -53,7 +53,7 @@ export const mockData = {
     {
       "id": "category-1767834723295",
       "icon": "🌐",
-      "name": "HomeServices",
+      "name": "本地服务",
       "order": 1,
       "sites": [
         {
