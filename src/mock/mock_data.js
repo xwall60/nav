@@ -54,7 +54,7 @@ export const mockData = {
           "name": "AX6",
           "url": "https://i.w66.fun/",
           "description": "",
-          "icon": ""
+          "icon": "https://openwrt.org/_media/logo.png"
         },
         {
           "id": "site-1767834823219",
@@ -68,21 +68,21 @@ export const mockData = {
           "name": "Memos",
           "url": "https://memos.w66.fun/",
           "description": "",
-          "icon": ""
+          "icon": "https://usememos.com/logo.png"
         },
         {
           "id": "site-1767834853598",
           "name": "Lucky",
           "url": "https://lucky.w66.fun/xwall",
           "description": "",
-          "icon": ""
+          "icon": "https://lucky666.cn/img/logo.svg"
         },
         {
           "id": "site-1767834874444",
           "name": "Cpolar",
           "url": "https://cot.w66.fun/",
           "description": "",
-          "icon": ""
+          "icon": "https://www.cpolar.com/wp-content/uploads/2018/11/normal-logo-2.png"
         }
       ]
     },
