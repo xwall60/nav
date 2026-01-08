@@ -35,7 +35,7 @@ export const mockData = {
           "icon": "/sitelogo/github.com.ico"
         },
         {
-          "id": "github",
+          "id": "Dashboard",
           "name": "Dashboard Icons",
           "url": "https://dashboardicons.com/",
           "description": "免费面板图标",
@@ -61,35 +61,35 @@ export const mockData = {
           "name": "AX6",
           "url": "https://i.w66.fun/",
           "description": "",
-          "icon": "https://openwrt.org/_media/logo.png"
+          "icon": "/sitelogo/openwrt.png"
         },
         {
           "id": "site-1767834823219",
           "name": "OECT",
           "url": "https://oect.w66.fun/wll",
           "description": "",
-          "icon": ""
+          "icon": "/sitelogo/1panel.png"
         },
         {
           "id": "site-1767834839678",
           "name": "Memos",
           "url": "https://memos.w66.fun/",
           "description": "",
-          "icon": "https://usememos.com/logo.png"
+          "icon": "/sitelogo/memos.png"
         },
         {
           "id": "site-1767834853598",
           "name": "Lucky",
           "url": "https://lucky.w66.fun/xwall",
           "description": "",
-          "icon": "https://lucky666.cn/img/logo.svg"
+          "icon": "/sitelogo/lucky.png"
         },
         {
           "id": "site-1767834874444",
           "name": "Cpolar",
           "url": "https://cot.w66.fun/",
           "description": "",
-          "icon": "https://www.cpolar.com/wp-content/uploads/2018/11/normal-logo-2.png"
+          "icon": "/sitelogo/cpolar.png"
         }
       ]
     },
