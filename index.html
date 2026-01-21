@@ -1,506 +1,61 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
-
 <head>
-  
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>导航</title>
-  <link rel="icon" type="image/x-icon" href="/icons/index.png">  
-  <style>
-    :root {
-      --bg: #0b1220;
-      --card: #121a2b;
-      --muted: #7b8aa5;
-      --text: #e6eefc;
-      --brand: #3b82f6;
-      --ok: #22c55e;
-      --warn: #f59e0b;
-      --err: #ef4444;
-      --disabled: #334155;
-      --border: #1f2a44;
-      --link: #93c5fd;
-      --shadow: 0 10px 30px rgba(0, 0, 0, .25);
-    }
-
-    * {
-      box-sizing: border-box
-    }
-
-    html,
-    body {
-      height: 100%
-    }
-
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Inter, Helvetica, Arial, 'Noto Sans SC', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
-      background: radial-gradient(1200px 600px at 20% -10%, #1b2750 0%, transparent 60%),
-        radial-gradient(800px 500px at 100% 0%, #0f1630 0%, transparent 50%),
-        var(--bg);
-      color: var(--text);
-    }
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      backdrop-filter: saturate(1.2) blur(10px);
-      background: linear-gradient(180deg, rgba(3, 8, 23, .85), rgba(3, 8, 23, .55));
-      border-bottom: 1px solid var(--border);
-    }
-
-    .wrap {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 16px 20px
-    }
-
-    .row {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      align-items: center
-    }
-
-    .space {
-      flex: 1
-    }
-
-    .title {
-      font-size: 20px;
-      font-weight: 700;
-      letter-spacing: .3px;
-      display: flex;
-      align-items: center;
-      gap: 10px
-    }
-
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 6px 10px;
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      background: rgba(17, 24, 39, .6)
-    }
-
-    .dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%
-    }
-
-    .search {
-      position: relative;
-      flex: 1;
-      min-width: 240px
-    }
-
-    .search input {
-      width: 100%;
-      padding: 10px 12px 10px 40px;
-      border-radius: 10px;
-      border: 1px solid var(--border);
-      background: rgba(15, 23, 42, .75);
-      color: var(--text);
-      outline: none
-    }
-
-    .search svg {
-      position: absolute;
-      left: 12px;
-      top: 50%;
-      transform: translateY(-50%);
-      opacity: .7
-    }
-
-    .btn {
-      cursor: pointer;
-      padding: 9px 12px;
-      border: 1px solid var(--border);
-      color: var(--text);
-      background: rgba(15, 23, 42, .6);
-      border-radius: 10px
-    }
-
-    .btn:hover {
-      border-color: #29447a
-    }
-
-    main {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 24px 20px 80px
-    }
-
-    .section {
-      margin-top: 20px
-    }
-
-    .section h2 {
-      font-size: 16px;
-      font-weight: 700;
-      color: #c9d7f2;
-      margin: 0 0 10px 4px
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 14px
-    }
-
-    .card {
-      background: linear-gradient(180deg, rgba(17, 24, 39, .85), rgba(17, 24, 39, .65));
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 14px;
-      box-shadow: var(--shadow);
-      position: relative
-    }
-
-    .card a {
-      display: block;
-      color: var(--text);
-      text-decoration: none
-    }
-
-    .card .name {
-      font-weight: 700;
-      margin-bottom: 6px
-    }
-
-    .card .desc {
-      color: var(--muted);
-      text-align: right;
-      font-size: 12px
-    }
-
-    .card .chip {
-      position: absolute;
-      right: 10px;
-      top: 10px;
-      font-size: 11px;
-      padding: 2px 8px;
-      border-radius: 8px;
-      border: 1px solid var(--border);
-      color: #a5b4fc
-    }
-
-    .hidden {
-      display: none !important
-    }
-
-    .hint {
-      font-size: 12px;
-      color: #9fb1d1;
-      margin-top: 6px
-    }
-
-    footer {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 16px 20px 30px;
-      color: #93a2bf;
-      font-size: 12px
-    }
-
-    code.inline {
-      background: #0e1a36;
-      color: #e4efff;
-      border: 1px solid #1f2d55;
-      padding: 2px 6px;
-      border-radius: 6px
-    }
-
-    .probe {
-      font-size: 12px;
-      margin-top: 6px;
-      color: #9fb1d1
-    }
-
-    .probe .ok {
-      color: var(--ok)
-    }
-
-    .probe .bad {
-      color: var(--err)
-    }
-
-    .probe .warn {
-      color: var(--warn)
-    }
-
-
-    /* 名称行容器：让图标和标题并排显示 */
-    .head {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      /* 图标与标题的间距 */
-      min-height: 20px;
-      /* 给小图标一点垂直空间，避免紧贴 */
-    }
-
-    /* 图标：不再 absolute，随文本自然排版在左侧 */
-    .icon {
-      width: 48px;
-      height: 32px;
-      flex: 0 0 48px;
-      /* 固定宽度，不会被压缩 */
-      border-radius: 3px;
-      object-fit: contain;
-      /* 适应各种比例的图标 */
-      opacity: .95;
-    }
-
-    /* 图标加载失败的占位样式（可选） */
-    .icon-fallback {
-      background: linear-gradient(135deg, #1f2a44, #354b7a);
-      border: 1px solid #1f2a44;
-    }
-
-    /* 标题样式：保持你原有的 name 风格即可 */
-    .name {
-      font-weight: 700;
-    }
-  </style>
+  <link rel="icon" href="assets/img/logo.svg">
+  <link rel="stylesheet" href="assets/css/styles.css">
 </head>
-
 <body>
-  <header>
-    
-    <div class="wrap">
-      <div class="row">
-        <div class="title">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M3 7h18M6 12h12M9 17h6" stroke="#9fb4ff" stroke-width="1.6" stroke-linecap="round" />
-          </svg>
-          导航
-          <span id="statusBadge" class="badge">
-            <span class="dot" id="statusDot" style="background:var(--warn)"></span>
-            <span id="statusText">正在检测网络…</span>
-          </span>
-        </div>
-        <div class="space"></div>
-        <div class="search">
-          <input id="searchInput" placeholder="搜索站点 / 快捷键：/" />
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M21 21l-4.2-4.2M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z" stroke="#9fb1d1" stroke-width="1.6"
-              stroke-linecap="round" />
-          </svg>
-        </div>
-        <button class="btn" id="btnCheck">重新检测</button>
-      </div>
-      <div class="probe" id="probeInfo"></div>
+  <header class="site-header">
+    <div class="brand">
+      <img class="logo" src="assets/img/logo.svg" alt="Logo" />
+      <h1 class="site-title">导航</h1>
+    </div>
+
+    <div class="controls">
+      <!-- 语言切换 -->
+      <label class="control">
+        <span id="labelLang">语言</span>：
+        <select id="langSelect" aria-label="语言选择">
+          <option value="zh-CN">中文</option>
+          <option value="en-US">English</option>
+        </select>
+      </label>
+
+      <!-- 环境切换 -->
+      <label class="control">
+        <span id="labelEnv">环境</span>：
+        <select id="envSelect" aria-label="环境选择">
+          <option value="auto">自动</option>
+          <option value="intranet">内网</option>
+          <option value="internet">外网</option>
+        </select>
+      </label>
+
+      <!-- 搜索过滤 -->
+      <label class="control search-control">
+        <input id="searchInput" type="search" placeholder="按名称/描述/标签过滤…" aria-label="搜索链接" />
+      </label>
+
+      <!-- 主题切换 -->
+      <button id="themeToggle" class="btn" aria-label="切换明暗主题">切换主题</button>
+
+      <!-- 密度切换（标准/紧凑） -->
+      <button id="densityToggle" class="btn" aria-label="切换密度">切换密度</button>
     </div>
   </header>
 
-  <main>
-    <div class="section" id="secIntranet">
-      <h2>🏠</h2>
-      <div id="intranetGrid" class="grid"></div>
-      <div class="hint">当检测为“外网/离线”时，内网链接将被**隐藏**。</div>
-    </div>
-
-    <div class="section">
-      <h2>🌏</h2>
-      <div id="internetGrid" class="grid"></div>
-    </div>
+  <main id="content">
+    <div id="groups" class="groups"></div>
+    <div id="message" class="message" role="alert" aria-live="polite"></div>
   </main>
 
-  <footer>
-    <!--<div>提示：如需更精准的内外网判断，请在本页面底部 <code class="inline">CONFIG.detection</code> 中配置贵司的内网探测地址（建议设置为 <code class="inline">HTTPS</code> 以避免浏览器的局域网访问限制）。</div>-->
-  </footer>
+  <noscript>
+    您的浏览器禁用了 JavaScript，本页面需要 JS 才能加载配置链接。
+  </noscript>
 
-  <!-- ================== 配置区（请按需修改） ================== -->
-  <script>
-    const CONFIG = {
-      detection: {
-        timeoutMs: 2500,
-        recheckEveryMs: 60 * 1000,
-        intranetProbes: [
-          // ↓↓↓ 将以下地址替换为贵司内网可达且轻量的探测端点（尽量 https），例如内网门户的小图标/favicon
-          { url: 'http://192.168.100.211:32320/favicon.ico/favicon.png', label: '网关 192.168.100.1' },
-        ],
-        internetProbes: [
-          { url: 'https://www.baidu.com/favicon.ico', label: '🌏' },
-        ]
-      },
-      links: {
-        intranet: [
-          { name: 'AX6', url: 'http://192.168.100.1', icon: 'icons/openwrt.png', desc: '路由器', category: '运维' },
-          { name: 'Lucky', url: 'http://192.168.100.1:16601/xwall', icon: 'icons/lucky.svg', desc: '网络工具与解决方案', category: '运维' },
-          { name: 'DS120j', url: 'http://192.168.100.100:5000', icon: 'icons/dsm.png',desc: '资料管理系统', category: '协作' },
-          { name: 'Memos', url: 'http://192.168.100.100:5230', icon: 'icons/memos.png', desc: '自托管笔记', category: '协作' },
-          { name: 'Aria2', url: 'http://192.168.100.100:4321', icon: 'icons/lucky.svg',desc: 'Aria2下载', category: '下载' },
-          { name: '1Panel', url: 'http://192.168.100.211:32320/wll', icon: 'icons/1panel.png',desc: '运维与监控', category: '运维' },
-        ],
-        internet: [
-          { name: 'AX6', url: 'https://i.w60.de5.net:2087', icon: 'icons/openwrt.png', desc: '路由器', category: '运维' },
-          { name: 'Lucky', url: 'https://lucky.w60.de5.net:2087/xwall',icon: 'icons/lucky.svg',  desc: '网络工具与解决方案', category: '运维' },
-          { name: 'DS120j', url: 'https://ds120j.w60.de5.net:2087', icon: 'icons/dsm.png',desc: '资料管理系统', category: '协作' },
-          { name: 'Memos', url: 'https://memos.w60.de5.net:2087', icon: 'icons/memos.png', desc: '自托管笔记', category: '协作' },
-          { name: 'AriaNg', url: 'https://aria.w60.de5.net:2087',icon: 'icons/ariang.png',desc: 'Aria2下载', category: '下载' },
-          { name: '1Panel', url: 'https://oect.w60.de5.net:2087/wll', icon: 'icons/1panel.png', desc: '运维与监控', category: '运维' },
-          { name: 'GitHub', url: 'https://github.com/', icon: 'icons/github.png',desc: '代码仓库', category: '研发' },
-          { name: 'Cloudflare', url: 'https://dash.cloudflare.com/',icon: 'icons/cloudflare.ico', desc: '互联网基础设施', category: '运维' },
-          { name: 'cnBeta', url: 'https://m.cnbeta.com.tw/wap', icon: 'icons/cnbeta.png', desc: '互联网资讯', category: '资讯' },
-          { name: '12306', url: 'https://www.12306.cn/index/', icon: 'icons/12306.png', desc: '火车票', category: '旅行' },
-          
-        ]
-      }
-    };
-  </script>
-
-  <!-- ================== 逻辑区（无需修改） ================== -->
-  <script>
-    function pingImage(url, timeoutMs) {
-      return new Promise((resolve) => {
-        const img = new Image();
-        let settled = false;
-        const timer = setTimeout(() => { if (!settled) { settled = true; cleanup(); resolve({ ok: false, reason: 'timeout' }); } }, timeoutMs);
-        function cleanup() { clearTimeout(timer); img.onload = img.onerror = null; }
-        img.onload = () => { if (!settled) { settled = true; cleanup(); resolve({ ok: true, reason: 'load' }); } };
-        img.onerror = () => { if (!settled) { settled = true; cleanup(); resolve({ ok: false, reason: 'error' }); } };
-        const sep = url.includes('?') ? '&' : '?';
-        img.src = url + sep + 't=' + Date.now();
-      });
-    }
-
-    async function probeSet(list, timeoutMs) {
-      if (!list || !list.length) return { any: false, details: [] };
-      const tasks = list.map(async p => {
-        const r = await pingImage(p.url, timeoutMs);
-        return { label: p.label || p.url, url: p.url, ok: r.ok, reason: r.reason };
-      });
-      const details = await Promise.all(tasks);
-      const any = details.some(d => d.ok);
-      return { any, details };
-    }
-
-    function computeStatus(intra, inter) {
-      if (intra.any && inter.any) return { key: 'both', text: '🏠 & 🌏', color: 'var(--ok)' };
-      if (intra.any && !inter.any) return { key: 'intranet', text: '🏠', color: 'var(--ok)' };
-      if (!intra.any && inter.any) return { key: 'internet', text: '🌏', color: 'var(--warn)' };
-      return { key: 'offline', text: '⛓️‍💥', color: 'var(--err)' };
-    }
-
-    function el(id) { return document.getElementById(id); }
-
-    function updateStatusUI(status, intra, inter) {
-      el('statusText').textContent = status.text;
-      el('statusDot').style.background = status.color;
-      const lines = [];
-      const fmt = (d) => `${d.ok ? '✅' : '⛔'} ${d.label} ${(d.ok ? '成功' : '失败')}${d.reason === 'timeout' ? ' · 超时' : ''}`;
-      //if (intra.details.length) lines.push('内网探测：' + intra.details.map(fmt).join('  |  '));
-      //if (inter.details.length) lines.push('| 外网探测：' + inter.details.map(fmt).join('  |  '));
-      //if (!lines.length) lines.push('尚未配置探测地址，建议在 CONFIG.detection 中添加。');
-      el('probeInfo').textContent = lines.join(' \n ');
-
-      // 变更点：当内网不可用时，隐藏整个“内网应用”区块
-      const secIntranet = el('secIntranet');
-      if (intra.any) {
-        secIntranet.classList.remove('hidden');
-      } else {
-        secIntranet.classList.add('hidden');
-      }
-    }
-
-    async function detectOnce() {
-      const { timeoutMs, intranetProbes, internetProbes } = CONFIG.detection;
-      el('statusText').textContent = '正在检测网络…';
-      el('statusDot').style.background = 'var(--warn)';
-
-      const [intra, inter] = await Promise.all([
-        probeSet(intranetProbes, timeoutMs),
-        probeSet(internetProbes, timeoutMs)
-      ]);
-      const status = computeStatus(intra, inter);
-      updateStatusUI(status, intra, inter);
-      return { status, intra, inter };
-    }
-
-
-
-    function renderLinks() {
-      const makeCard = (link) => {
-        const div = document.createElement('div');
-        div.className = 'card';
-
-        const a = document.createElement('a');
-        a.href = link.url;
-        a.target = '_blank';
-        a.rel = 'noopener';
-
-        // 结构：chip（右上角分类）、head（图标 + 名称）、desc（描述）
-        a.innerHTML = `
-      <div class="chip">${link.category || ''}</div>
-      <div class="head">
-        <div class="name">${link.name}</div>
-      </div>
-      <div class="desc">${link.desc || ''}</div>
-    `;
-
-        // 如果配置了 icon，则把图标插入到 head 的最前面（在标题左边）
-        if (link.icon) {
-          const img = document.createElement('img');
-          img.className = 'icon';
-          img.src = link.icon;
-          img.alt = '';
-          img.loading = 'lazy';
-          img.onerror = () => { img.classList.add('icon-fallback'); img.removeAttribute('src'); };
-          a.querySelector('.head').prepend(img);
-        }
-
-        div.appendChild(a);
-        return div;
-      };
-
-      const intranetGrid = el('intranetGrid');
-      const internetGrid = el('internetGrid');
-      intranetGrid.innerHTML = '';
-      internetGrid.innerHTML = '';
-      CONFIG.links.intranet.forEach(l => intranetGrid.appendChild(makeCard(l)));
-      CONFIG.links.internet.forEach(l => internetGrid.appendChild(makeCard(l)));
-    }
-
-
-
-    function setupSearch() {
-      const input = el('searchInput');
-      function applyFilter() {
-        const q = input.value.trim().toLowerCase();
-        const allCards = document.querySelectorAll('.card');
-        allCards.forEach(card => {
-          const text = card.textContent.toLowerCase();
-          card.style.display = q ? (text.includes(q) ? '' : 'none') : '';
-        });
-      }
-      input.addEventListener('input', applyFilter);
-      window.addEventListener('keydown', (e) => { if (e.key === '/' && document.activeElement !== input) { e.preventDefault(); input.focus(); } });
-    }
-
-    function autoRecheck() {
-      const period = CONFIG.detection.recheckEveryMs;
-      if (period && period > 0) setInterval(detectOnce, period);
-      window.addEventListener('online', detectOnce);
-      window.addEventListener('offline', detectOnce);
-      el('btnCheck').addEventListener('click', detectOnce);
-    }
-
-    //
-    // 使用：const iconUrl = link.icon || guessFavicon(link.url);
-
-    // 初始化
-    renderLinks();
-    detectOnce();
-    setupSearch();
-    autoRecheck();
-
-  </script>
+  <script src="assets/js/app.js" defer></script>
 </body>
-
 </html>

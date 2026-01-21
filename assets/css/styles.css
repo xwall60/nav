@@ -1,0 +1,134 @@
+ :root {
+  /* 品牌主色：替换为你的公司色 */
+  --brand: #0a7cc5;
+
+  --bg: #f7f8fa;
+  --fg: #1f2328;
+  --muted: #6b7280;
+  --card-bg: #ffffff;
+  --card-border: #e5e7eb;
+  --accent: var(--brand);
+  --accent-weak: #93c5fd;
+}
+
+:root.dark {
+  --bg: #0b1220;
+  --fg: #e5e7eb;
+  --muted: #9ca3af;
+  --card-bg: #0f172a;
+  --card-border: #1f2937;
+  --accent: #60a5fa;
+  --accent-weak: #1d4ed8;
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font: 14px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,"Noto Sans","PingFang SC","Microsoft YaHei","Hiragino Sans GB","WenQuanYi Micro Hei",sans-serif;
+}
+
+.site-header {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  position: sticky;
+  top: 0;
+  background: var(--bg);
+  border-bottom: 1px solid var(--card-border);
+  z-index: 10;
+}
+.brand { display: flex; align-items: center; gap: 10px; }
+.logo { width: 28px; height: 28px; }
+.site-title { margin: 0; font-size: 18px; }
+
+.controls { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.control { font-size: 14px; color: var(--muted); }
+.control select, .control input {
+  padding: 6px 8px;
+  border: 1px solid var(--card-border);
+  border-radius: 6px;
+  background: var(--card-bg);
+  color: var(--fg);
+}
+.search-control { min-width: 220px; }
+
+.btn {
+  padding: 8px 10px;
+  border: 1px solid var(--card-border);
+  background: var(--card-bg);
+  color: var(--fg);
+  border-radius: 6px;
+  cursor: pointer;
+}
+.btn:hover { border-color: var(--accent); }
+
+#content { padding: 16px; max-width: 1200px; margin: 0 auto; }
+
+.group { margin-bottom: 18px; }
+.group-title {
+  margin: 0 0 10px 0;
+  font-size: 15px;
+  color: var(--muted);
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(220px, 1fr));
+  gap: 10px;
+}
+@media (max-width: 1200px) { .cards { grid-template-columns: repeat(3, minmax(220px, 1fr)); } }
+@media (max-width: 900px)  { .cards { grid-template-columns: repeat(2, minmax(180px, 1fr)); } }
+@media (max-width: 600px)  { .cards { grid-template-columns: repeat(2, minmax(150px, 1fr)); } }
+
+.card {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: 10px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
+  text-decoration: none;
+  color: var(--fg);
+  transition: border-color .15s ease, transform .05s ease;
+  min-height: 60px;
+}
+.card:hover {
+  border-color: var(--accent);
+  transform: translateY(-1px);
+}
+.card .icon {
+  width: 26px; height: 26px; flex: 0 0 26px;
+  border-radius: 6px;
+  background: var(--accent-weak);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+.card .icon img { width: 100%; height: 100%; object-fit: cover; }
+.card .meta { display: grid; gap: 2px; min-width: 0; }
+.card .name { font-weight: 600; font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.card .desc { color: var(--muted); font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+.message { margin-top: 8px; color: var(--muted); }
+.hidden { display: none !important; }
+
+/* --- 紧凑模式（移动端/密度切换） --- */
+:root.dense .cards { gap: 6px; }
+:root.dense .card { padding: 8px; border-radius: 8px; min-height: 50px; }
+:root.dense .card .icon { width: 22px; height: 22px; }
+:root.dense .card .name { font-size: 13px; }
+:root.dense .card .desc { font-size: 11px; }
+
+/* 小屏更紧凑 */
+@media (max-width: 480px) {
+  .site-title { font-size: 16px; }
+  .controls { gap: 6px; }
+  .btn { padding: 6px 8px; }
+  .control select, .control input { padding: 6px; }
+}

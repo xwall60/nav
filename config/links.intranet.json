@@ -1,0 +1,88 @@
+{
+  "groups": [
+    {
+      "title": "🏠",
+      "title_en": "Intranet Links",
+      "links": [
+        {
+          "name": "AX6",
+          "name_en": "AX6",
+          "url": "http://192.168.100.1",
+          "desc": "路由器",
+          "desc_en": "router",
+          "icon": "assets/img/openwrt.png",
+          "target": "_blank",
+          "tags": [
+            "router",
+            "openwrt"
+          ]
+        },
+        {
+          "name": "Lucky",
+          "name_en": "Lucky",
+          "url": "http://192.168.100.1:16601/xwall",
+          "desc": "网络工具与解决方案",
+          "desc_en": "网络工具与解决方案",
+          "icon": "assets/img/lucky.svg",
+          "target": "_blank",
+          "tags": [
+            "lucky",
+            "web"
+          ]
+        },
+        {
+          "name": "DS120j",
+          "name_en": "DS120j",
+          "url": "http://192.168.100.100:5000",
+          "desc": "资料管理系统",
+          "desc_en": "资料管理系统",
+          "icon": "assets/img/dsm.png",
+          "target": "_blank",
+          "tags": [
+            "nas",
+            "dsm"
+          ]
+        },
+        {
+          "name": "Memos",
+          "name_en": "Memos",
+          "url": "http://192.168.100.100:5230",
+          "desc": "自托管笔记",
+          "desc_en": "自托管笔记",
+          "icon": "assets/img/memos.png",
+          "target": "_blank",
+          "tags": [
+            "note",
+            "memos"
+          ]
+        },
+		{
+          "name": "1Panel",
+          "name_en": "1Panel",
+          "url": "http://192.168.100.211:32320/wll",
+          "desc": "自托管笔记",
+          "desc_en": "自托管笔记",
+          "icon": "assets/img/1panel.png",
+          "target": "_blank",
+          "tags": [
+            "1panel",
+            "oect"
+          ]
+        },
+        {
+          "name": "AriaNg",
+          "name_en": "AriaNg",
+          "url": "http://192.168.100.100:4321",
+          "desc": "AriaNg",
+          "desc_en": "AriaNg",
+          "icon": "assets/img/ariang.png",
+          "target": "_blank",
+          "tags": [
+            "aria2",
+            "download"
+          ]
+        }
+      ]
+    }
+  ]
+}

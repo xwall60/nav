@@ -1,0 +1,16 @@
+{
+  "siteTitle": "导航",
+  "envLabel": "环境",
+  "envAuto": "自动",
+  "envIntranet": "内网",
+  "envInternet": "外网",
+  "searchPlaceholder": "按名称/描述/标签过滤…",
+  "themeToggle": "切换主题",
+  "densityToggle": "切换密度",
+  "densityStandard": "标准",
+  "densityCompact": "紧凑",
+  "langLabel": "语言",
+  "loaded": "已加载",
+  "environment": "环境",
+  "errorLoading": "加载失败"
+}

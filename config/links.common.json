@@ -1,0 +1,65 @@
+{
+  "groups": [
+    {
+      "title": "🏷️",
+      "title_en": "🏷️",
+      "links": [
+        {
+          "name": "cnBeta",
+          "name_en": "cnBeta",
+          "url": "https://m.cnbeta.com.tw/wap",
+          "desc": "互联网资讯",
+          "desc_en": "互联网资讯",
+          "icon": "assets/img/cnbeta.png",
+          "target": "_blank",
+          "tags": [
+            "cnBeta",
+            "互联网",
+            "资讯"
+          ]
+        },
+        {
+          "name": "12306",
+          "name_en": "12306",
+          "url": "https://www.12306.cn/index/",
+          "desc": "火车票",
+          "desc_en": "火车票",
+          "icon": "assets/img/12306.png",
+          "target": "_blank",
+          "tags": [
+            "12306",
+            "火车票",
+            "tickets"
+          ]
+        },
+        {
+          "name": "Cloudflare",
+          "name_en": "Cloudflare",
+          "url": "https://dash.cloudflare.com/",
+          "desc": "互联网基础设施",
+          "desc_en": "互联网基础设施",
+          "icon": "assets/img/cloudflare.ico",
+          "target": "_blank",
+          "tags": [
+            "cloudflare",
+            "dns",
+            "pages"
+          ]
+        },
+        {
+          "name": "GitHub",
+          "name_en": "GitHub",
+          "url": "https://github.com/",
+          "desc": "代码仓库",
+          "desc_en": "代码仓库",
+          "icon": "assets/img/github.png",
+          "target": "_blank",
+          "tags": [
+            "github",
+            "coding"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "siteTitle": "Navigator",
+  "envLabel": "Environment",
+  "envAuto": "Auto",
+  "envIntranet": "Intranet",
+  "envInternet": "Internet",
+  "searchPlaceholder": "Filter by name/description/tags…",
+  "themeToggle": "Theme",
+  "densityToggle": "Density",
+  "densityStandard": "Standard",
+  "densityCompact": "Compact",
+  "langLabel": "Language",
+  "loaded": "Loaded",
+  "environment": "environment",
+  "errorLoading": "Loading failed"
+}
