@@ -149,7 +149,7 @@ function applyEnvButtonUI() {
 function applyI18nStaticTexts() {
   els.siteTitle.textContent = t('siteTitle');
   document.title = t('siteTitle');
-  els.labelEnv.textContent = t('envLabel');
+  // els.labelEnv.textContent = t('envLabel');
   // els.labelLang.textContent = t('langLabel');
   els.search.placeholder = t('searchPlaceholder');
   const envMap = { auto: t('envAuto'), intranet: t('envIntranet'), internet: t('envInternet') };
