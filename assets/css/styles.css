@@ -55,7 +55,14 @@ body {
   background: var(--card-bg);
   color: var(--fg);
 }
-.search-control { min-width: 80px; }
+/* 默认：小一点 */
+.search-control { flex: 0 0 20px; min-width: 0; }
+.search-control input { width: 100%; }
+
+/* ≥900px 的屏幕：给它稍微宽一点 */
+@media (min-width: 900px) {
+  .search-control { flex: 0 0 180px; }
+}
 
 .btn {
   padding: 8px 10px;
