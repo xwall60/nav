@@ -65,7 +65,7 @@
           "url": "https://www.nexusmods.com/",
           "desc": "Mods",
           "desc_en": "Mods",
-          "icon": "assets/img/default-icon.svg",
+          "icon": "assets/img/nexusmods.jpg",
           "target": "_blank",
           "tags": [
             "mods",
@@ -105,7 +105,7 @@
           "url": "https://dashboardicons.com/",
           "desc": "Icons",
           "desc_en": "Icons",
-          "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/dashboard-icons.svg",
+          "icon": "assets/img/dashboard-icons.svg",
           "target": "_blank",
           "tags": [
             "Icons"
