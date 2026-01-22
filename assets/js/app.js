@@ -29,9 +29,10 @@ async function init() {
   initTheme();
   await initLang();
   initDensity();
-  initEnvSelect();
+  // initEnvSelect();
   initSearch();
   loadFavorites();
+  initEnvControl();
 
   try {
     await loadEnvConfig();
@@ -48,14 +49,15 @@ function cacheEls() {
   els.groups = document.getElementById('groups');
   els.message = document.getElementById('message');
   els.search = document.getElementById('searchInput');
-  els.envSelect = document.getElementById('envSelect');
+  // els.envSelect = document.getElementById('envSelect');
   els.themeToggle = document.getElementById('themeToggle');
   // els.langSelect = document.getElementById('langSelect');
   els.densityToggle = document.getElementById('densityToggle');
   els.siteTitle = document.querySelector('.site-title');
-  els.labelEnv = document.getElementById('labelEnv');
+  // els.labelEnv = document.getElementById('labelEnv');
   // els.labelLang = document.getElementById('labelLang');
   els.langToggle = document.getElementById('langToggle');
+  els.envToggle = document.getElementById('envToggle');
 }
 
 /* 主题明暗 */
@@ -78,6 +80,14 @@ const SUPPORTED_LANGS = ['zh-CN', 'en-US'];
 function nextLang(current) {
   const i = SUPPORTED_LANGS.indexOf(current);
   return SUPPORTED_LANGS[(i + 1) % SUPPORTED_LANGS.length] || SUPPORTED_LANGS[0];
+}
+
+// 支持的环境模式（顺序即循环顺序）
+const ENV_MODES = ['auto', 'intranet', 'internet'];
+
+function nextEnv(current) {
+  const i = ENV_MODES.indexOf(current);
+  return ENV_MODES[(i + 1) % ENV_MODES.length] || 'auto';
 }
 
 /* 语言 */
@@ -121,6 +131,21 @@ function updateLangToggleUI() {
   els.langToggle.setAttribute('aria-label', els.langToggle.title);
 }
 
+function envLabel(mode) {
+  const map = { auto: t('envAuto'), intranet: t('envIntranet'), internet: t('envInternet') };
+  return map[mode] || mode;
+}
+
+function applyEnvButtonUI() {
+  if (!els.envToggle) return;
+  const curr = state.envOverride || 'auto';
+  const next = nextEnv(curr);
+  const text = `${t('envLabel')}：${envLabel(curr)} → ${envLabel(next)}`;
+  els.envToggle.textContent = text;
+  els.envToggle.title = `${t('envLabel')}：${envLabel(curr)}；点击切换为 ${envLabel(next)}`;
+  els.envToggle.setAttribute('aria-label', els.envToggle.title);
+}
+
 function applyI18nStaticTexts() {
   els.siteTitle.textContent = t('siteTitle');
   document.title = t('siteTitle');
@@ -131,6 +156,7 @@ function applyI18nStaticTexts() {
   Array.from(els.envSelect.options).forEach(o => o.textContent = envMap[o.value] || o.value);
   els.themeToggle.textContent = t('themeToggle');
   applyDensityLabel();
+  applyEnvButtonUI();
 }
 
 /* 密度（标准/紧凑） */
@@ -213,14 +239,25 @@ async function loadEnvConfig() {
 }
 
 /* 判定环境：优先 override -> 固定 -> 自动探测 */
+
 async function decideEnvironment() {
-  const override = localStorage.getItem('nav_env_override');
-  if (override && override !== 'auto') { state.effectiveEnv = override; return; }
+  // 优先使用按钮设置的 override（或 localStorage）
+  const override = state.envOverride || localStorage.getItem('nav_env_override');
+  if (override && override !== 'auto') { 
+    state.effectiveEnv = override; 
+    return; 
+  }
+  // 再看 env.json 的固定模式
   const cfgMode = (state.envConfig.mode || 'auto').toLowerCase();
-  if (cfgMode === 'intranet' || cfgMode === 'internet') { state.effectiveEnv = cfgMode; return; }
-  const ok = await probeIntranet(state.envConfig.probeUrls, state.envConfig.probeTimeoutMs);
+  if (cfgMode === 'intranet' || cfgMode === 'internet') { 
+    state.effectiveEnv = cfgMode; 
+    return; 
+  }
+  // 最后才 auto 探测（你已有的 probe 逻辑）
+  const ok = await probeIntranet(state.envConfig.probeUrls || state.envConfig.probeUrl, state.envConfig.probeTimeoutMs);
   state.effectiveEnv = ok ? 'intranet' : 'internet';
 }
+
 
 /* 多地址探测，HTTPS 下自动追加 https:// 尝试 */
 async function probeIntranet(urls = [], timeoutMs = 1500) {
@@ -410,4 +447,26 @@ function error(msg) {
   els.message.textContent = msg;
   els.message.classList.remove('hidden');
   els.message.style.color = '#ef4444';
+}
+
+
+function initEnvControl() {
+  // 读取或初始化 override：auto | intranet | internet
+  const saved = localStorage.getItem('nav_env_override') || 'auto';
+  state.envOverride = saved;      // 给 state 记一份（新增字段，便于 UI）
+  applyEnvButtonUI();             // 刷新按钮文字
+
+  if (els.envToggle) {
+    els.envToggle.addEventListener('click', async () => {
+      // 循环到下一模式并保存
+      state.envOverride = nextEnv(state.envOverride || 'auto');
+      localStorage.setItem('nav_env_override', state.envOverride);
+      applyEnvButtonUI();
+
+      // 重新判定并刷新链接渲染（无需整页 reload）
+      await decideEnvironment();
+      await loadLinksAndRender();
+      info(`${t('loaded')}（${t('environment')}：${state.effectiveEnv}）`);
+    });
+  }
 }

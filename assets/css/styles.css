@@ -158,3 +158,6 @@ body {
 
 /* 语言切换按钮（可选） */
 .btn-lang { padding: 6px 10px; }
+
+/* 环境切换按钮（可选） */
+.btn-env { padding: 6px 10px;  }
