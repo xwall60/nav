@@ -1,11 +1,12 @@
 /* 全局状态 */
 const state = {
-  envConfig: { mode: 'auto', probeUrl: '', probeTimeoutMs: 1500 },
+  envConfig: { mode: 'auto', probeUrl: '', probeTimeoutMs: 1500, probeUrls: [] },
   effectiveEnv: 'internet', // 'intranet' | 'internet'
   groups: [],
   lang: 'zh-CN',
   i18n: {}, // 当前语言字典
-  density: 'standard' // 'standard' | 'compact'
+  density: 'standard', // 'standard' | 'compact'
+  favorites: new Set() // 已收藏卡片 key 集合
 };
 
 const els = {
@@ -30,6 +31,7 @@ async function init() {
   initDensity();
   initEnvSelect();
   initSearch();
+  loadFavorites();
 
   try {
     await loadEnvConfig();
@@ -154,34 +156,76 @@ function filterCards(q) {
   });
 }
 
-/* 读取 env.json */
+/* 收藏（本地） */
+function loadFavorites() {
+  try {
+    const raw = localStorage.getItem('nav_favorites');
+    const arr = raw ? JSON.parse(raw) : [];
+    state.favorites = new Set(Array.isArray(arr) ? arr : []);
+  } catch { state.favorites = new Set(); }
+}
+function saveFavorites() {
+  try { localStorage.setItem('nav_favorites', JSON.stringify(Array.from(state.favorites))); } catch {}
+}
+function linkKey(link) {
+  // 以 URL 作为主键；若无 URL 则退回到 name（同语言情况下稳定）
+  return (link.url || '').trim() || (link.name || link.name_en || '').trim();
+}
+function isFav(link) { return state.favorites.has(linkKey(link)); }
+function toggleFav(link) {
+  const key = linkKey(link);
+  if (state.favorites.has(key)) state.favorites.delete(key); else state.favorites.add(key);
+  saveFavorites();
+}
+
+/* 读取 env.json（兼容 probeUrl / probeUrls） */
 async function loadEnvConfig() {
   const r = await fetch('config/env.json', { cache: 'no-cache' });
   if (!r.ok) throw new Error(`env.json (${r.status})`);
   const data = await r.json();
-  state.envConfig = Object.assign({ mode: 'auto', probeTimeoutMs: 1500 }, data);
+  const probeUrls = Array.isArray(data.probeUrls) ? data.probeUrls : (data.probeUrl ? [data.probeUrl] : []);
+  state.envConfig = Object.assign({ mode: 'auto', probeTimeoutMs: 1500 }, data, { probeUrls });
 }
 
-/* 判定环境：优先用户 override -> env.json -> auto 探测 */
+/* 判定环境：优先 override -> 固定 -> 自动探测 */
 async function decideEnvironment() {
   const override = localStorage.getItem('nav_env_override');
   if (override && override !== 'auto') { state.effectiveEnv = override; return; }
   const cfgMode = (state.envConfig.mode || 'auto').toLowerCase();
   if (cfgMode === 'intranet' || cfgMode === 'internet') { state.effectiveEnv = cfgMode; return; }
-  const ok = await probeIntranet(state.envConfig.probeUrl, state.envConfig.probeTimeoutMs);
+  const ok = await probeIntranet(state.envConfig.probeUrls, state.envConfig.probeTimeoutMs);
   state.effectiveEnv = ok ? 'intranet' : 'internet';
 }
 
-function probeIntranet(url, timeoutMs = 1500) {
-  return new Promise(resolve => {
-    if (!url) return resolve(false);
-    let done = false;
-    const img = new Image();
-    const timer = setTimeout(() => { if (done) return; done = true; resolve(false); }, timeoutMs);
-    img.onload = () => { if (done) return; done = true; clearTimeout(timer); resolve(true); };
-    img.onerror = () => { if (done) return; done = true; clearTimeout(timer); resolve(false); };
-    img.src = `${url}${url.includes('?') ? '&' : '?'}_t=${Date.now()}`;
+/* 多地址探测，HTTPS 下自动追加 https:// 尝试 */
+async function probeIntranet(urls = [], timeoutMs = 1500) {
+  const candidates = [];
+  (urls || []).forEach(u => {
+    if (!u) return;
+    candidates.push(u);
+    if (window.isSecureContext && /^http:\/\//i.test(u)) {
+      candidates.push(u.replace(/^http:/i, 'https:'));
+    }
   });
+
+  for (const u of candidates) {
+    const ok = await probeOnce(u, timeoutMs);
+    if (ok) return true;
+  }
+  return false;
+
+  function probeOnce(url, tmo) {
+    return new Promise(resolve => {
+      let done = false;
+      const img = new Image();
+      const timer = setTimeout(() => { if (done) return; done = true; resolve(false); }, tmo);
+      img.onload = () => { if (done) return; done = true; clearTimeout(timer); resolve(true); };
+      img.onerror = () => { if (done) return; done = true; clearTimeout(timer); resolve(false); };
+      try { img.referrerPolicy = 'no-referrer'; } catch (_) {}
+      const sep = url.includes('?') ? '&' : '?';
+      img.src = `${url}${sep}_t=${Date.now()}`;
+    });
+  }
 }
 
 /* 加载、合并并渲染链接 */
@@ -215,27 +259,55 @@ function mergeGroups(a, b) {
   return Array.from(map.values());
 }
 
+function buildFavoritesGroup(groups) {
+  // 汇总所有链接，选出已收藏并去重
+  const seen = new Set();
+  const favLinks = [];
+  groups.forEach(g => (g.links || []).forEach(l => {
+    const k = linkKey(l);
+    if (!k || !state.favorites.has(k) || seen.has(k)) return;
+    seen.add(k);
+    favLinks.push(l);
+  }));
+  if (favLinks.length === 0) return null;
+  return { title: t('favoritesGroup'), title_en: t('favoritesGroup'), links: favLinks };
+}
+
 function renderGroups(groups) {
+  const q = (els.search.value || '').trim().toLowerCase(); // 记住当前搜索
   els.groups.innerHTML = '';
+
+  // 先渲染收藏分组（如果有）
+  const favGroup = buildFavoritesGroup(groups);
+  if (favGroup) {
+    els.groups.appendChild(renderGroup(favGroup, true));
+  }
   groups.forEach(g => {
-    const groupEl = document.createElement('section');
-    groupEl.className = 'group';
-
-    const h = document.createElement('h2');
-    h.className = 'group-title';
-    h.textContent = pickLang(g.title, g.title_en);
-
-    const wrap = document.createElement('div');
-    wrap.className = 'cards';
-
-    (g.links || []).forEach(link => {
-      wrap.appendChild(renderCard(link));
-    });
-
-    groupEl.appendChild(h);
-    groupEl.appendChild(wrap);
-    els.groups.appendChild(groupEl);
+    els.groups.appendChild(renderGroup(g, false));
   });
+
+  // 重新应用搜索过滤
+  if (q) filterCards(q);
+}
+
+function renderGroup(g, isFav) {
+  const groupEl = document.createElement('section');
+  groupEl.className = 'group';
+
+  const h = document.createElement('h2');
+  h.className = 'group-title';
+  h.textContent = pickLang(g.title, g.title_en);
+
+  const wrap = document.createElement('div');
+  wrap.className = 'cards';
+
+  (g.links || []).forEach(link => {
+    wrap.appendChild(renderCard(link));
+  });
+
+  groupEl.appendChild(h);
+  groupEl.appendChild(wrap);
+  return groupEl;
 }
 
 function renderCard(link) {
@@ -268,11 +340,29 @@ function renderCard(link) {
   desc.className = 'desc';
   desc.textContent = pickLang(link.desc, link.desc_en) || '';
 
+  // 收藏按钮
+  const star = document.createElement('button');
+  star.className = 'star';
+  star.type = 'button';
+  const favNow = isFav(link);
+  star.classList.toggle('active', favNow);
+  star.textContent = '⭐';
+  star.title = favNow ? t('unfavorite') : t('favorite');
+  star.setAttribute('aria-pressed', favNow ? 'true' : 'false');
+  star.addEventListener('click', (e) => {
+    e.preventDefault(); // 阻止 <a> 导航
+    e.stopPropagation();
+    toggleFav(link);
+    // 重新渲染整个列表，确保收藏分组置顶更新
+    renderGroups(state.groups);
+  });
+
   meta.appendChild(name);
   meta.appendChild(desc);
 
   a.appendChild(icon);
   a.appendChild(meta);
+  a.appendChild(star);
 
   const tags = Array.isArray(link.tags) ? link.tags.join(' ') : (link.tags || '');
   a.dataset.search = [
