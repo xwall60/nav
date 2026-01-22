@@ -20,7 +20,7 @@
         {
           "name": "Lucky",
           "name_en": "Lucky",
-          "url": "'https://lucky.w60.de5.net:2087/xwall",
+          "url": "https://lucky.w60.de5.net:2087/xwall",
           "desc": "网络工具与解决方案",
           "desc_en": "网络工具与解决方案",
           "icon": "assets/img/lucky.svg",

@@ -155,3 +155,6 @@ body {
   display: none !important; 
 }
 
+
+/* 语言切换按钮（可选） */
+.btn-lang { padding: 6px 10px; }

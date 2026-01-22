@@ -50,11 +50,12 @@ function cacheEls() {
   els.search = document.getElementById('searchInput');
   els.envSelect = document.getElementById('envSelect');
   els.themeToggle = document.getElementById('themeToggle');
-  els.langSelect = document.getElementById('langSelect');
+  // els.langSelect = document.getElementById('langSelect');
   els.densityToggle = document.getElementById('densityToggle');
   els.siteTitle = document.querySelector('.site-title');
   els.labelEnv = document.getElementById('labelEnv');
-  els.labelLang = document.getElementById('labelLang');
+  // els.labelLang = document.getElementById('labelLang');
+  els.langToggle = document.getElementById('langToggle');
 }
 
 /* 主题明暗 */
@@ -71,23 +72,37 @@ function applyTheme(mode) {
   document.documentElement.classList.toggle('dark', mode === 'dark');
 }
 
+// 支持的语言列表：需要更多语言时只要在这里追加，并提供对应 i18n/*.json
+const SUPPORTED_LANGS = ['zh-CN', 'en-US'];
+
+function nextLang(current) {
+  const i = SUPPORTED_LANGS.indexOf(current);
+  return SUPPORTED_LANGS[(i + 1) % SUPPORTED_LANGS.length] || SUPPORTED_LANGS[0];
+}
+
 /* 语言 */
+
 async function initLang() {
   const saved = localStorage.getItem('nav_lang');
   const auto = saved || (navigator.language || 'zh-CN');
   state.lang = auto.toLowerCase().startsWith('zh') ? 'zh-CN' : 'en-US';
-  els.langSelect.value = state.lang;
+
   await loadI18n();
-  applyI18nStaticTexts();
-  els.langSelect.addEventListener('change', async () => {
-    state.lang = els.langSelect.value;
-    localStorage.setItem('nav_lang', state.lang);
-    await loadI18n();
-    applyI18nStaticTexts();
-    // 需要重新渲染卡片以切换双语
-    await loadLinksAndRender();
-  });
+  applyI18nStaticTexts();   // 切页面固定文案
+  updateLangToggleUI();     // 刷新按钮上的文案
+
+  if (els.langToggle) {
+    els.langToggle.addEventListener('click', async () => {
+      state.lang = nextLang(state.lang);
+      localStorage.setItem('nav_lang', state.lang);
+      await loadI18n();
+      applyI18nStaticTexts();
+      await loadLinksAndRender();  // 重渲染卡片以切换中英字段
+      updateLangToggleUI();
+    });
+  }
 }
+
 
 async function loadI18n() {
   const path = `i18n/${state.lang}.json`;
@@ -96,11 +111,21 @@ async function loadI18n() {
   else state.i18n = {};
 }
 function t(key) { return state.i18n[key] || key; }
+
+function updateLangToggleUI() {
+  if (!els.langToggle) return;
+  // 按钮显示“下一种语言”的提示
+  const isZh = state.lang === 'zh-CN';
+  els.langToggle.textContent = isZh ? 'EN' : '中';
+  els.langToggle.title = isZh ? '切换为 English' : 'Switch to 中文';
+  els.langToggle.setAttribute('aria-label', els.langToggle.title);
+}
+
 function applyI18nStaticTexts() {
   els.siteTitle.textContent = t('siteTitle');
   document.title = t('siteTitle');
   els.labelEnv.textContent = t('envLabel');
-  els.labelLang.textContent = t('langLabel');
+  // els.labelLang.textContent = t('langLabel');
   els.search.placeholder = t('searchPlaceholder');
   const envMap = { auto: t('envAuto'), intranet: t('envIntranet'), internet: t('envInternet') };
   Array.from(els.envSelect.options).forEach(o => o.textContent = envMap[o.value] || o.value);
