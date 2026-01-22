@@ -4,7 +4,7 @@
   "envAuto": "自动",
   "envIntranet": "内网",
   "envInternet": "外网",
-  "searchPlaceholder": "按名称/描述/标签过滤…",
+  "searchPlaceholder": "过滤…",
   "themeToggle": "🎨",
   "densityToggle": "切换密度",
   "densityStandard": "标准",
