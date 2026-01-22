@@ -152,8 +152,8 @@ function applyI18nStaticTexts() {
   // els.labelEnv.textContent = t('envLabel');
   // els.labelLang.textContent = t('langLabel');
   els.search.placeholder = t('searchPlaceholder');
-  const envMap = { auto: t('envAuto'), intranet: t('envIntranet'), internet: t('envInternet') };
-  Array.from(els.envSelect.options).forEach(o => o.textContent = envMap[o.value] || o.value);
+  // const envMap = { auto: t('envAuto'), intranet: t('envIntranet'), internet: t('envInternet') };
+  // Array.from(els.envSelect.options).forEach(o => o.textContent = envMap[o.value] || o.value);
   els.themeToggle.textContent = t('themeToggle');
   applyDensityLabel();
   applyEnvButtonUI();
