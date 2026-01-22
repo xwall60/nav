@@ -65,7 +65,7 @@
           "url": "https://www.nexusmods.com/",
           "desc": "Mods",
           "desc_en": "Mods",
-          "icon": "assets/img/nexusmods.jpg",
+          "icon": "assets/img/nexusmods.png",
           "target": "_blank",
           "tags": [
             "mods",
