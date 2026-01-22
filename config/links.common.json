@@ -58,7 +58,71 @@
             "github",
             "coding"
           ]
-        }
+        },
+		{
+          "name": "Nexus Mods",
+          "name_en": "Nexus Mods",
+          "url": "https://www.nexusmods.com/",
+          "desc": "Mods",
+          "desc_en": "Mods",
+          "icon": "assets/img/default-icon.svg",
+          "target": "_blank",
+          "tags": [
+            "mods",
+            "stardew vallery",
+            "game"
+          ]
+        },
+		{
+          "name": "少数派",
+          "name_en": "sspai",
+          "url": "https://sspai.com/",
+          "desc": "高效工作,品质生活",
+          "desc_en": "高效工作,品质生活",
+          "icon": "assets/img/default-icon.svg",
+          "target": "_blank",
+          "tags": [
+            "news",
+            "jobs",
+            "life"
+          ]
+        },
+		{
+          "name": "八戒",
+          "name_en": "bajie",
+          "url": "https://bajie.la/dashboard",
+          "desc": "机场",
+          "desc_en": "机场",
+          "icon": "assets/img/default-icon.svg",
+          "target": "_blank",
+          "tags": [
+            "机场"
+          ]
+        },
+		{
+          "name": "Dashboard Icons",
+          "name_en": "Dashboard Icons",
+          "url": "https://dashboardicons.com/",
+          "desc": "Icons",
+          "desc_en": "Icons",
+          "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/dashboard-icons.svg",
+          "target": "_blank",
+          "tags": [
+            "Icons"
+          ]
+        },
+		{
+          "name": "Icon Font",
+          "name_en": "Icon Font",
+          "url": "https://www.iconfont.cn/",
+          "desc": "Icons",
+          "desc_en": "Icons",
+          "icon": "assets/img/default-icon.svg",
+          "target": "_blank",
+          "tags": [
+            "Icons"
+          ]
+        }		
       ]
     }
   ]
