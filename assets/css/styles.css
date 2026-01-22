@@ -55,7 +55,7 @@ body {
   background: var(--card-bg);
   color: var(--fg);
 }
-.search-control { min-width: 220px; }
+.search-control { min-width: 80px; }
 
 .btn {
   padding: 8px 10px;
