@@ -49,13 +49,9 @@ function cacheEls() {
   els.groups = document.getElementById('groups');
   els.message = document.getElementById('message');
   els.search = document.getElementById('searchInput');
-  // els.envSelect = document.getElementById('envSelect');
   els.themeToggle = document.getElementById('themeToggle');
-  // els.langSelect = document.getElementById('langSelect');
   els.densityToggle = document.getElementById('densityToggle');
   els.siteTitle = document.querySelector('.site-title');
-  // els.labelEnv = document.getElementById('labelEnv');
-  // els.labelLang = document.getElementById('labelLang');
   els.langToggle = document.getElementById('langToggle');
   els.envToggle = document.getElementById('envToggle');
 }
@@ -83,11 +79,11 @@ function nextLang(current) {
 }
 
 // 支持的环境模式（顺序即循环顺序）
-const ENV_MODES = ['auto', 'intranet', 'internet'];
+const ENV_MODES = ['intranet', 'internet'];
 
 function nextEnv(current) {
   const i = ENV_MODES.indexOf(current);
-  return ENV_MODES[(i + 1) % ENV_MODES.length] || 'auto';
+  return ENV_MODES[(i + 1) % ENV_MODES.length];
 }
 
 /* 语言 */
@@ -138,22 +134,18 @@ function envLabel(mode) {
 
 function applyEnvButtonUI() {
   if (!els.envToggle) return;
-  const curr = state.envOverride || 'auto';
+  const curr = state.envOverride;
   const next = nextEnv(curr);
-  const text = `${t('envLabel')}：${envLabel(curr)} → ${envLabel(next)}`;
+  const text = `${envLabel(next)}`;
   els.envToggle.textContent = text;
-  els.envToggle.title = `${t('envLabel')}：${envLabel(curr)}；点击切换为 ${envLabel(next)}`;
+  els.envToggle.title = `点击切换为 ${envLabel(next)}`;
   els.envToggle.setAttribute('aria-label', els.envToggle.title);
 }
 
 function applyI18nStaticTexts() {
   els.siteTitle.textContent = t('siteTitle');
   document.title = t('siteTitle');
-  // els.labelEnv.textContent = t('envLabel');
-  // els.labelLang.textContent = t('langLabel');
-  els.search.placeholder = t('searchPlaceholder');
-  // const envMap = { auto: t('envAuto'), intranet: t('envIntranet'), internet: t('envInternet') };
-  // Array.from(els.envSelect.options).forEach(o => o.textContent = envMap[o.value] || o.value);
+  els.search.placeholder = t('searchPlaceholder'); 
   els.themeToggle.textContent = t('themeToggle');
   applyDensityLabel();
   applyEnvButtonUI();
