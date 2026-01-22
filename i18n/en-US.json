@@ -12,5 +12,8 @@
   "langLabel": "Language",
   "loaded": "Loaded",
   "environment": "environment",
-  "errorLoading": "Loading failed"
+  "errorLoading": "Loading failed"，
+  "favoritesGroup": "Favorites",
+  "favorite": "Favorite",
+  "unfavorite": "Unfavorite"
 }
