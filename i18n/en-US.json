@@ -4,7 +4,7 @@
   "envAuto": "Auto",
   "envIntranet": "Intranet",
   "envInternet": "Internet",
-  "searchPlaceholder": "Filter by name/description/tags…",
+  "searchPlaceholder": "…",
   "themeToggle": "🎨",
   "densityToggle": "🔍",
   "densityStandard": "Standard",
