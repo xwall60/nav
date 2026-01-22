@@ -132,3 +132,14 @@ body {
   .btn { padding: 6px 8px; }
   .control select, .control input { padding: 6px; }
 }
+/* --- 收藏星标按钮 --- */
+.card { position: relative; }
+.card .star {
+  position: absolute; top: 6px; right: 6px;
+  background: transparent; border: none; cursor: pointer;
+  font-size: 16px; line-height: 1; opacity: .6; padding: 0;
+}
+.card:hover .star { opacity: .9; }
+.card .star.active { opacity: 1; filter: drop-shadow(0 0 0.5px #0003); }
+:root.dense .card .star { top: 4px; right: 4px; font-size: 14px; }
+
