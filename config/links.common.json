@@ -79,7 +79,7 @@
           "url": "https://sspai.com/",
           "desc": "高效工作,品质生活",
           "desc_en": "高效工作,品质生活",
-          "icon": "assets/img/default-icon.svg",
+          "icon": "assets/img/sspai.svg",
           "target": "_blank",
           "tags": [
             "news",
@@ -93,7 +93,7 @@
           "url": "https://bajie.la/dashboard",
           "desc": "机场",
           "desc_en": "机场",
-          "icon": "assets/img/default-icon.svg",
+          "icon": "assets/img/bajie.ico",
           "target": "_blank",
           "tags": [
             "机场"
@@ -117,7 +117,7 @@
           "url": "https://www.iconfont.cn/",
           "desc": "Icons",
           "desc_en": "Icons",
-          "icon": "assets/img/default-icon.svg",
+          "icon": "assets/img/iconfont.svg",
           "target": "_blank",
           "tags": [
             "Icons"
