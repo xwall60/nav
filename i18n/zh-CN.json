@@ -12,5 +12,8 @@
   "langLabel": "语言",
   "loaded": "已加载",
   "environment": "环境",
-  "errorLoading": "加载失败"
+  "errorLoading": "加载失败",
+  "favoritesGroup": "收藏",
+  "favorite": "收藏",
+  "unfavorite": "取消收藏"
 }
