@@ -143,3 +143,8 @@ body {
 .card .star.active { opacity: 1; filter: drop-shadow(0 0 0.5px #0003); }
 :root.dense .card .star { top: 4px; right: 4px; font-size: 14px; }
 
+/* 隐藏“切换密度”按钮 */
+#densityToggle { 
+  display: none !important; 
+}
+
