@@ -105,7 +105,7 @@
           "url": "https://my.dnshe.com/",
           "desc": "Domain",
           "desc_en": "Domain",
-          "icon": "assets/img/dhshe.ico",
+          "icon": "assets/img/dnshe.ico",
           "target": "_blank",
           "tags": [
             "Domain"
