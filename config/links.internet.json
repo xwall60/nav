@@ -7,7 +7,7 @@
         {
           "name": "AX6",
           "name_en": "AX6",
-          "url": "https://i.w60.de5.net:2087",
+          "url": "https://i.ax6.cc.cd:2087",
           "desc": "路由器",
           "desc_en": "router",
           "icon": "assets/img/openwrt.png",
@@ -20,7 +20,7 @@
         {
           "name": "Lucky",
           "name_en": "Lucky",
-          "url": "https://lucky.w60.de5.net:2087/xwall",
+          "url": "https://lucky.ax6.cc.cd:2087/xwall",
           "desc": "网络工具与解决方案",
           "desc_en": "网络工具与解决方案",
           "icon": "assets/img/lucky.svg",
@@ -33,7 +33,7 @@
         {
           "name": "DS120j",
           "name_en": "DS120j",
-          "url": "https://ds120j.w60.de5.net:2087",
+          "url": "https://ds120j.ax6.cc.cd:2087",
           "desc": "资料管理系统",
           "desc_en": "资料管理系统",
           "icon": "assets/img/dsm.png",
@@ -46,7 +46,7 @@
         {
           "name": "Memos",
           "name_en": "Memos",
-          "url": "https://memos.w60.de5.net:2087",
+          "url": "https://memos.ax6.cc.cd:2087",
           "desc": "自托管笔记",
           "desc_en": "自托管笔记",
           "icon": "assets/img/memos.png",
@@ -59,7 +59,7 @@
 		{
           "name": "1Panel",
           "name_en": "1Panel",
-          "url": "https://oect.w60.de5.net:2087/wll",
+          "url": "https://oect.ax6.cc.cd:2087/wll",
           "desc": "自托管笔记",
           "desc_en": "自托管笔记",
           "icon": "assets/img/1panel.png",
@@ -72,7 +72,7 @@
         {
           "name": "AriaNg",
           "name_en": "AriaNg",
-          "url": "https://aria.w60.de5.net:2087",
+          "url": "https://aria.ax6.cc.cd:2087",
           "desc": "AriaNg",
           "desc_en": "AriaNg",
           "icon": "assets/img/ariang.png",
