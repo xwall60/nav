@@ -19,6 +19,20 @@
           ]
         },
         {
+          "name": "恩山",
+          "name_en": "EnShan",
+          "url": "https://www.right.com.cn/",
+          "desc": "无线论坛",
+          "desc_en": "无线论坛",
+          "icon": "assets/img/enshan.ico",
+          "target": "_blank",
+          "tags": [
+            "无线论坛",
+            "刷机",
+            "资讯"
+          ]
+        },
+        {
           "name": "12306",
           "name_en": "12306",
           "url": "https://www.12306.cn/index/",
@@ -84,6 +98,20 @@
           "tags": [
             "news",
             "jobs",
+            "life"
+          ]
+        },
+    {
+          "name": "BT影视",
+          "name_en": "BT影视",
+          "url": "https://xxsdaohangwang.github.io/btyingshi/",
+          "desc": "影视",
+          "desc_en": "影视",
+          "icon": "assets/img/default-icon.svg",
+          "target": "_blank",
+          "tags": [
+            "影视",
+            "movie",
             "life"
           ]
         },
