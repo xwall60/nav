@@ -100,6 +100,18 @@
           ]
         },
 		{
+          "name": "DNSHE",
+          "name_en": "DNSHE",
+          "url": "https://my.dnshe.com/",
+          "desc": "Domain",
+          "desc_en": "Domain",
+          "icon": "assets/img/dhshe.ico",
+          "target": "_blank",
+          "tags": [
+            "Domain"
+          ]
+        },
+		{
           "name": "Dashboard Icons",
           "name_en": "Dashboard Icons",
           "url": "https://dashboardicons.com/",
