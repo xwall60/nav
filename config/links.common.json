@@ -101,20 +101,6 @@
             "life"
           ]
         },
-    {
-          "name": "BT影视",
-          "name_en": "BT影视",
-          "url": "https://xxsdaohangwang.github.io/btyingshi/",
-          "desc": "影视",
-          "desc_en": "影视",
-          "icon": "assets/img/default-icon.svg",
-          "target": "_blank",
-          "tags": [
-            "影视",
-            "movie",
-            "life"
-          ]
-        },
 		{
           "name": "八戒",
           "name_en": "bajie",
@@ -155,8 +141,8 @@
           "name": "Icon Font",
           "name_en": "Icon Font",
           "url": "https://www.iconfont.cn/",
-          "desc": "Icons",
-          "desc_en": "Icons",
+          "desc": "阿里巴巴矢量图标库",
+          "desc_en": "阿里巴巴矢量图标库",
           "icon": "assets/img/iconfont.svg",
           "target": "_blank",
           "tags": [

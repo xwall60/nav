@@ -60,8 +60,8 @@
           "name": "1Panel",
           "name_en": "1Panel",
           "url": "https://oect.ax6.cc.cd:2087/wll",
-          "desc": "自托管笔记",
-          "desc_en": "自托管笔记",
+          "desc": "现代化、开源的Linux服务器运维管理面板",
+          "desc_en": "现代化、开源的Linux服务器运维管理面板",
           "icon": "assets/img/1panel.png",
           "target": "_blank",
           "tags": [
