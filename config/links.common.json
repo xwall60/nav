@@ -150,6 +150,18 @@
           ]
         },
 		{
+          "name": "星露谷物语Images",
+          "name_en": "StardewValleyImages",
+          "url": "https://stardewvalleywiki.com/Category:Images",
+          "desc": "StardewValleyImages",
+          "desc_en": "StardewValleyImages",
+          "icon": "assets/img/StardewValley.png",
+          "target": "_blank",
+          "tags": [
+            "StardewValley"
+          ]
+        },
+		{
           "name": "Icon Font",
           "name_en": "Icon Font",
           "url": "https://www.iconfont.cn/",
