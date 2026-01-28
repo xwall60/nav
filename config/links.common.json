@@ -138,6 +138,18 @@
           ]
         },
 		{
+          "name": "gridify",
+          "name_en": "gridify",
+          "url": "https://www.gridify.it/",
+          "desc": "给图片加各种类型的网格",
+          "desc_en": "Add gridlines",
+          "icon": "assets/img/gridify.ico",
+          "target": "_blank",
+          "tags": [
+            "Pixels"
+          ]
+        },
+		{
           "name": "Icon Font",
           "name_en": "Icon Font",
           "url": "https://www.iconfont.cn/",
