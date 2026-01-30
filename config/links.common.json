@@ -73,6 +73,19 @@
             "coding"
           ]
         },
+        {
+          "name": "Vercel",
+          "name_en": "Vercel",
+          "url": "https://vercel.com/",
+          "desc": "云服务平台",
+          "desc_en": "云服务平台",
+          "icon": "assets/img/vercel.svg",
+          "target": "_blank",
+          "tags": [
+            "Vercel",
+            "coding"
+          ]
+        },
 		{
           "name": "Nexus Mods",
           "name_en": "Nexus Mods",
