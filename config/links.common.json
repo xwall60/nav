@@ -79,7 +79,7 @@
           "url": "https://vercel.com/",
           "desc": "云服务平台",
           "desc_en": "云服务平台",
-          "icon": "assets/img/vercel.svg",
+          "icon": "assets/img/vercel.ico",
           "target": "_blank",
           "tags": [
             "Vercel",
