@@ -57,15 +57,28 @@
           ]
         },
 		{
-          "name": "1Panel",
-          "name_en": "1Panel",
-          "url": "https://oect.ax6.cc.cd:2087/wll",
-          "desc": "现代化、开源的Linux服务器运维管理面板",
-          "desc_en": "现代化、开源的Linux服务器运维管理面板",
-          "icon": "assets/img/1panel.png",
+          "name": "飞牛",
+          "name_en": "fnOS",
+          "url": "https://oect.ax6.cc.cd:2087",
+          "desc": "NAS系统",
+          "desc_en": "NAS系统",
+          "icon": "assets/img/fnos.svg",
           "target": "_blank",
           "tags": [
-            "1panel",
+            "fnOS",
+            "oect"
+          ]
+        },
+		{
+          "name": "Cockpit",
+          "name_en": "Cockpit",
+          "url": "https://t.ax6.cc.cd:2087",
+          "desc": "NAS系统",
+          "desc_en": "NAS系统",
+          "icon": "assets/img/cockpit-light.svg",
+          "target": "_blank",
+          "tags": [
+            "Cockpit",
             "oect"
           ]
         },
