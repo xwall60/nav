@@ -69,19 +69,6 @@
             "oect"
           ]
         },
-		{
-          "name": "Cockpit",
-          "name_en": "Cockpit",
-          "url": "http://192.168.100.211:9090",
-          "desc": "NAS系统",
-          "desc_en": "NAS系统",
-          "icon": "assets/img/cockpit-light.svg",
-          "target": "_blank",
-          "tags": [
-            "Cockpit",
-            "oect"
-          ]
-        },
         {
           "name": "AriaNg",
           "name_en": "AriaNg",
