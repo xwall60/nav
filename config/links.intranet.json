@@ -33,7 +33,7 @@
         {
           "name": "DS120j",
           "name_en": "DS120j",
-          "url": "http://192.168.100.100:5000",
+          "url": "http://192.168.100.211:5000",
           "desc": "资料管理系统",
           "desc_en": "资料管理系统",
           "icon": "assets/img/dsm.png",
