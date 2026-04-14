@@ -33,7 +33,7 @@
         {
           "name": "DS120j",
           "name_en": "DS120j",
-          "url": "http://192.168.100.211:5000",
+          "url": "http://192.168.100.100:5000",
           "desc": "资料管理系统",
           "desc_en": "资料管理系统",
           "icon": "assets/img/dsm.png",
@@ -46,7 +46,7 @@
         {
           "name": "Memos",
           "name_en": "Memos",
-          "url": "http://192.168.100.100:5230",
+          "url": "http://192.168.100.211:5230",
           "desc": "自托管笔记",
           "desc_en": "自托管笔记",
           "icon": "assets/img/memos.png",
@@ -72,7 +72,7 @@
         {
           "name": "AriaNg",
           "name_en": "AriaNg",
-          "url": "http://192.168.100.100:4321",
+          "url": "http://192.168.100.211:6880",
           "desc": "AriaNg",
           "desc_en": "AriaNg",
           "icon": "assets/img/ariang.png",
