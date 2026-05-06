@@ -69,6 +69,19 @@
             "oect"
           ]
         },
+		{
+          "name": "1Panel",
+          "name_en": "1Panel",
+          "url": "https://p1.ax6.cc.cd:2087",
+          "desc": "1Panel",
+          "desc_en": "1Panel",
+          "icon": "assets/img/1panel.svg",
+          "target": "_blank",
+          "tags": [
+            "fnOS",
+            "1Panel"
+          ]
+        },
         {
           "name": "AriaNg",
           "name_en": "AriaNg",
