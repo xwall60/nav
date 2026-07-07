@@ -7,7 +7,7 @@
         {
           "name": "AX6",
           "name_en": "AX6",
-          "url": "http://192.168.100.1",
+          "url": "http://192.168.31.1",
           "desc": "路由器",
           "desc_en": "router",
           "icon": "assets/img/openwrt.png",
@@ -20,7 +20,7 @@
         {
           "name": "Lucky",
           "name_en": "Lucky",
-          "url": "http://192.168.100.1:16601/xwall",
+          "url": "http://192.168.31.1:16601/xwall",
           "desc": "网络工具与解决方案",
           "desc_en": "网络工具与解决方案",
           "icon": "assets/img/lucky.svg",
@@ -33,7 +33,7 @@
         {
           "name": "DS120j",
           "name_en": "DS120j",
-          "url": "http://192.168.100.100:5000",
+          "url": "http://192.168.31.100:5000",
           "desc": "资料管理系统",
           "desc_en": "资料管理系统",
           "icon": "assets/img/dsm.png",
@@ -46,7 +46,7 @@
         {
           "name": "Memos",
           "name_en": "Memos",
-          "url": "http://192.168.100.211:5230",
+          "url": "http://192.168.31.211:5230",
           "desc": "自托管笔记",
           "desc_en": "自托管笔记",
           "icon": "assets/img/memos.png",
@@ -59,7 +59,7 @@
 		{
           "name": "飞牛",
           "name_en": "fnOS",
-          "url": "http://192.168.100.211",
+          "url": "http://192.168.31.211",
           "desc": "NAS系统",
           "desc_en": "NAS系统",
           "icon": "assets/img/fnos.svg",
@@ -72,7 +72,7 @@
 		{
           "name": "1Panel",
           "name_en": "1Panel",
-          "url": "http://192.168.100.211:33676",
+          "url": "http://192.168.31.211:33676",
           "desc": "1Panel",
           "desc_en": "1Panel",
           "icon": "assets/img/1panel.png",
@@ -85,7 +85,7 @@
         {
           "name": "AriaNg",
           "name_en": "AriaNg",
-          "url": "http://192.168.100.211:6880",
+          "url": "http://192.168.31.211:6880",
           "desc": "AriaNg",
           "desc_en": "AriaNg",
           "icon": "assets/img/ariang.png",
