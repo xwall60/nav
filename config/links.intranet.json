@@ -83,16 +83,16 @@
           ]
         },
         {
-          "name": "AriaNg",
-          "name_en": "AriaNg",
+          "name": "Home-Assistant",
+          "name_en": "Home-Assistant",
           "url": "http://192.168.31.211:6880",
-          "desc": "AriaNg",
-          "desc_en": "AriaNg",
-          "icon": "assets/img/ariang.png",
+          "desc": "Home-Assistant",
+          "desc_en": "Home-Assistant",
+          "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/home-assistant.svg",
           "target": "_blank",
           "tags": [
-            "aria2",
-            "download"
+            "Home-Assistant",
+            "Home-Assistant"
           ]
         }
       ]
