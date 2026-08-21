@@ -88,7 +88,7 @@
           "url": "https://ha.ax6.cc.cd:2087",
           "desc": "HomeAssistant",
           "desc_en": "HomeAssistant",
-          "icon": "assets/img/ariang.png",
+          "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/home-assistant.svg",
           "target": "_blank",
           "tags": [
             "HomeAssistant",
