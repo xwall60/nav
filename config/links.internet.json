@@ -83,16 +83,16 @@
           ]
         },
         {
-          "name": "AriaNg",
-          "name_en": "AriaNg",
-          "url": "https://ng.ax6.cc.cd:2087",
-          "desc": "AriaNg",
-          "desc_en": "AriaNg",
+          "name": "HomeAssistant",
+          "name_en": "HomeAssistant",
+          "url": "https://ha.ax6.cc.cd:2087",
+          "desc": "HomeAssistant",
+          "desc_en": "HomeAssistant",
           "icon": "assets/img/ariang.png",
           "target": "_blank",
           "tags": [
-            "aria2",
-            "download"
+            "HomeAssistant",
+            "HomeAssistant"
           ]
         }
       ]
