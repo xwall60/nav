@@ -56,6 +56,19 @@
             "oect"
           ]
         },
+        {
+          "name": "MeNote",
+          "name_en": "MeNote",
+          "url": "https://menote.ax6.cc.cd",
+          "desc": "笔记",
+          "desc_en": "笔记",
+          "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/goodnotes.svg",
+          "target": "_blank",
+          "tags": [
+            "nas",
+            "MeNote"
+          ]
+        },
 		{
           "name": "1Panel",
           "name_en": "1Panel",
