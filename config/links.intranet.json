@@ -31,11 +31,11 @@
           ]
         },
         {
-          "name": "DS120j",
+          "name": "MeNote",
           "name_en": "DS120j",
-          "url": "http://192.168.31.100:5000",
-          "desc": "资料管理系统",
-          "desc_en": "资料管理系统",
+          "url": "http://192.168.31.211:3107",
+          "desc": "笔记",
+          "desc_en": "笔记",
           "icon": "assets/img/dsm.png",
           "target": "_blank",
           "tags": [
@@ -83,16 +83,16 @@
           ]
         },
         {
-          "name": "Home-Assistant",
-          "name_en": "Home-Assistant",
-          "url": "http://192.168.31.211:8123",
-          "desc": "Home-Assistant",
-          "desc_en": "Home-Assistant",
-          "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/home-assistant.svg",
+          "name": "网盘搜索",
+          "name_en": "网盘搜索",
+          "url": "http://192.168.31.211:8899",
+          "desc": "网盘搜索",
+          "desc_en": "网盘搜索",
+          "icon": "assets/img/1panel.png",
           "target": "_blank",
           "tags": [
-            "Home-Assistant",
-            "Home-Assistant"
+            "网盘搜索",
+            "网盘搜索"
           ]
         }
       ]
