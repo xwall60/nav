@@ -31,19 +31,6 @@
           ]
         },
         {
-          "name": "DS120j",
-          "name_en": "DS120j",
-          "url": "https://ds120j.ax6.cc.cd:2087",
-          "desc": "资料管理系统",
-          "desc_en": "资料管理系统",
-          "icon": "assets/img/dsm.png",
-          "target": "_blank",
-          "tags": [
-            "nas",
-            "dsm"
-          ]
-        },
-        {
           "name": "Memos",
           "name_en": "Memos",
           "url": "https://memos.ax6.cc.cd:2087",
@@ -80,19 +67,6 @@
           "tags": [
             "fnOS",
             "1Panel"
-          ]
-        },
-        {
-          "name": "HomeAssistant",
-          "name_en": "HomeAssistant",
-          "url": "https://ha.ax6.cc.cd:2087",
-          "desc": "HomeAssistant",
-          "desc_en": "HomeAssistant",
-          "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/home-assistant.svg",
-          "target": "_blank",
-          "tags": [
-            "HomeAssistant",
-            "HomeAssistant"
           ]
         }
       ]
