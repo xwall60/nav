@@ -36,7 +36,7 @@
           "url": "http://192.168.31.211:3107",
           "desc": "笔记",
           "desc_en": "笔记",
-          "icon": "assets/img/dsm.png",
+          "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/goodnotes.svg",
           "target": "_blank",
           "tags": [
             "nas",
@@ -88,7 +88,7 @@
           "url": "http://192.168.31.211:8899",
           "desc": "网盘搜索",
           "desc_en": "网盘搜索",
-          "icon": "assets/img/1panel.png",
+          "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/searxng.svg",
           "target": "_blank",
           "tags": [
             "网盘搜索",
